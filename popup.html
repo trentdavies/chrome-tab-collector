@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Collector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tab Collector</h1>
+
+    <fieldset>
+      <legend>Source</legend>
+      <label>
+        <input type="radio" name="source" value="all-windows" checked>
+        All Windows
+      </label>
+      <label>
+        <input type="radio" name="source" value="current-window">
+        Current Window
+      </label>
+      <label>
+        <input type="radio" name="source" value="all-bookmarks">
+        All Bookmarks
+      </label>
+      <label>
+        <input type="radio" name="source" value="bookmark-folder">
+        Bookmark Folder:
+        <select id="folder-select" disabled>
+          <option value="">Select a folder...</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <div id="subfolder-option" class="option-row hidden">
+      <label>
+        <input type="checkbox" id="include-subfolders" checked>
+        Include subfolders
+      </label>
+    </div>
+
+    <div class="option-row">
+      <label>
+        Sort domains:
+        <select id="sort-order">
+          <option value="alphabetical">Alphabetically</option>
+          <option value="count">By link count</option>
+          <option value="none">Unsorted</option>
+        </select>
+      </label>
+    </div>
+
+    <button id="collect-btn" class="primary-btn">Collect</button>
+
+    <div id="results" class="hidden">
+      <div id="status"></div>
+      <textarea id="output" readonly placeholder="Markdown output will appear here..."></textarea>
+      <button id="copy-btn" class="secondary-btn">Copy to Clipboard</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
